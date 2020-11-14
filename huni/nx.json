@@ -1,0 +1,52 @@
+{
+  "npmScope": "huni",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "YzAxNThlNWQtZjU4MC00ZDA3LWI4NGItM2I4N2Q3ZTdlOTQ0fHJlYWQtd3JpdGU=",
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "palmband": {
+      "tags": []
+    },
+    "palmband-e2e": {
+      "tags": [],
+      "implicitDependencies": ["palmband"]
+    },
+    "svg-icons": {
+      "tags": []
+    },
+    "huni-home": {
+      "tags": []
+    },
+    "huni-home-e2e": {
+      "tags": [],
+      "implicitDependencies": ["huni-home"]
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interface": {
+      "tags": []
+    }
+  }
+}

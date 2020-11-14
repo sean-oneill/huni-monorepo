@@ -1,0 +1,368 @@
+{
+  "version": 1,
+  "projects": {
+    "palmband": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/palmband",
+      "sourceRoot": "apps/palmband/src",
+      "prefix": "huni",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/palmband",
+            "index": "apps/palmband/src/index.html",
+            "main": "apps/palmband/src/main.ts",
+            "polyfills": "apps/palmband/src/polyfills.ts",
+            "tsConfig": "apps/palmband/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/palmband/src/favicon.ico",
+              "apps/palmband/src/assets"
+            ],
+            "styles": ["apps/palmband/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/palmband/src/environments/environment.ts",
+                  "with": "apps/palmband/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "palmband:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "palmband:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "palmband:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/palmband/tsconfig.app.json",
+              "apps/palmband/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/palmband/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/palmband/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "palmband-e2e": {
+      "root": "apps/palmband-e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/palmband-e2e/protractor.conf.js",
+            "devServerTarget": "palmband:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "palmband:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/palmband-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**", "!apps/palmband-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "svg-icons": {
+      "projectType": "library",
+      "root": "libs/svg-icons",
+      "sourceRoot": "libs/svg-icons/src",
+      "prefix": "huni",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/svg-icons/tsconfig.lib.json",
+              "libs/svg-icons/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/svg-icons/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/svg-icons/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "huni-home": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/huni-home",
+      "sourceRoot": "apps/huni-home/src",
+      "prefix": "huni",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/huni-home",
+            "index": "apps/huni-home/src/index.html",
+            "main": "apps/huni-home/src/main.ts",
+            "polyfills": "apps/huni-home/src/polyfills.ts",
+            "tsConfig": "apps/huni-home/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/huni-home/src/favicon.ico",
+              "apps/huni-home/src/assets"
+            ],
+            "styles": ["apps/huni-home/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/huni-home/src/environments/environment.ts",
+                  "with": "apps/huni-home/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "huni-home:build",
+            "proxyConfig": "apps/huni-home/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "huni-home:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "huni-home:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/huni-home/tsconfig.app.json",
+              "apps/huni-home/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/huni-home/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/huni-home/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "huni-home-e2e": {
+      "root": "apps/huni-home-e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/huni-home-e2e/protractor.conf.js",
+            "devServerTarget": "huni-home:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "huni-home:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/huni-home-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**", "!apps/huni-home-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "prefix": "api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/api/tsconfig.app.json",
+              "apps/api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-interface": {
+      "root": "libs/api-interface",
+      "sourceRoot": "libs/api-interface/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/api-interface/tsconfig.lib.json",
+              "libs/api-interface/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/api-interface/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/api-interface/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "protractor"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "palmband"
+}
