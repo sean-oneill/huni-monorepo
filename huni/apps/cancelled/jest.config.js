@@ -1,4 +1,5 @@
 module.exports = {
+  displayName: 'cancelled',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -13,11 +14,10 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../coverage/libs/svg-icons',
+  coverageDirectory: '../../coverage/apps/cancelled',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
     'jest-preset-angular/build/HTMLCommentSerializer.js',
   ],
-  displayName: 'svg-icons',
 };

@@ -1,14 +1,9 @@
 {
   "npmScope": "huni",
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     "nx.json": "*"
@@ -25,38 +20,17 @@
     }
   },
   "projects": {
-    "palmband": {
-      "tags": []
-    },
-    "palmband-e2e": {
-      "tags": [],
-      "implicitDependencies": ["palmband"]
-    },
-    "svg-icons": {
-      "tags": []
-    },
-    "huni-home": {
-      "tags": []
-    },
-    "huni-home-e2e": {
-      "tags": [],
-      "implicitDependencies": ["huni-home"]
-    },
-    "api": {
-      "tags": []
-    },
-    "api-interface": {
-      "tags": []
-    },
-    "components": {
-      "tags": []
-    },
-    "ecogas": {
-      "tags": []
-    },
-    "ecogas-e2e": {
-      "tags": [],
-      "implicitDependencies": ["ecogas"]
-    }
+    "palmband": { "tags": [] },
+    "palmband-e2e": { "tags": [], "implicitDependencies": ["palmband"] },
+    "svg-icons": { "tags": [] },
+    "huni-home": { "tags": [] },
+    "huni-home-e2e": { "tags": [], "implicitDependencies": ["huni-home"] },
+    "api": { "tags": [] },
+    "api-interface": { "tags": [] },
+    "components": { "tags": [] },
+    "ecogas": { "tags": [] },
+    "ecogas-e2e": { "tags": [], "implicitDependencies": ["ecogas"] },
+    "cancelled": { "tags": [] },
+    "cancelled-e2e": { "tags": [], "implicitDependencies": ["cancelled"] }
   }
 }

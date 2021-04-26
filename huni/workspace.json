@@ -57,7 +57,8 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -91,7 +92,8 @@
           "options": {
             "jestConfig": "apps/palmband/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/apps/palmband"]
         }
       }
     },
@@ -141,7 +143,8 @@
           "options": {
             "jestConfig": "libs/svg-icons/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/svg-icons"]
         }
       },
       "schematics": {
@@ -206,7 +209,8 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -241,7 +245,8 @@
           "options": {
             "jestConfig": "apps/huni-home/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/apps/huni-home"]
         }
       }
     },
@@ -297,7 +302,8 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@nrwl/node:execute",
@@ -321,7 +327,8 @@
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/apps/api"]
         }
       }
     },
@@ -347,7 +354,8 @@
           "options": {
             "jestConfig": "libs/api-interface/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/api-interface"]
         }
       }
     },
@@ -372,7 +380,8 @@
           "options": {
             "jestConfig": "libs/components/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/components"]
         }
       },
       "schematics": {
@@ -434,7 +443,8 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -468,7 +478,8 @@
           "options": {
             "jestConfig": "apps/ecogas/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/apps/ecogas"]
         }
       }
     },
@@ -496,6 +507,118 @@
           }
         }
       }
+    },
+    "cancelled": {
+      "projectType": "application",
+      "root": "apps/cancelled",
+      "sourceRoot": "apps/cancelled/src",
+      "prefix": "huni",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/cancelled",
+            "index": "apps/cancelled/src/index.html",
+            "main": "apps/cancelled/src/main.ts",
+            "polyfills": "apps/cancelled/src/polyfills.ts",
+            "tsConfig": "apps/cancelled/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/cancelled/src/favicon.ico",
+              "apps/cancelled/src/assets"
+            ],
+            "styles": ["apps/cancelled/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/cancelled/src/environments/environment.ts",
+                  "with": "apps/cancelled/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "cancelled:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cancelled:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cancelled:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/cancelled/src/**/*.ts",
+              "apps/cancelled/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/cancelled"],
+          "options": {
+            "jestConfig": "apps/cancelled/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "cancelled-e2e": {
+      "root": "apps/cancelled-e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/cancelled-e2e/protractor.conf.js",
+            "devServerTarget": "cancelled:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cancelled:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/cancelled-e2e/**/*.ts"]
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -503,11 +626,18 @@
   },
   "schematics": {
     "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
       "unitTestRunner": "jest",
       "e2eTestRunner": "protractor"
     },
     "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
       "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
   },
   "defaultProject": "palmband"

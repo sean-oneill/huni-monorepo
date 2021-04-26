@@ -1,9 +1,12 @@
 module.exports = {
-  testMatch: ['**/+(*.)+(spec|test).+(ts|js)?(x)'],
-  transform: {
-    '^.+\\.(ts|js|html)$': 'ts-jest',
-  },
-  resolver: '@nrwl/jest/plugins/resolver',
-  moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageReporters: ['html'],
+  projects: [
+    '<rootDir>/apps/palmband',
+    '<rootDir>/libs/svg-icons',
+    '<rootDir>/apps/huni-home',
+    '<rootDir>/apps/api',
+    '<rootDir>/libs/api-interface',
+    '<rootDir>/libs/components',
+    '<rootDir>/apps/ecogas',
+    '<rootDir>/apps/cancelled',
+  ],
 };
