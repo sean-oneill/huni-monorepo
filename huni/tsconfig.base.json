@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@huni/svg-icons": ["libs/svg-icons/src/index.ts"],
-      "@huni/api-interface": ["libs/api-interface/src/index.ts"]
+      "@huni/api-interface": ["libs/api-interface/src/index.ts"],
+      "@huni/components": ["libs/components/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

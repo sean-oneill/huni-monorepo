@@ -47,6 +47,16 @@
     },
     "api-interface": {
       "tags": []
+    },
+    "components": {
+      "tags": []
+    },
+    "ecogas": {
+      "tags": []
+    },
+    "ecogas-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ecogas"]
     }
   }
 }
